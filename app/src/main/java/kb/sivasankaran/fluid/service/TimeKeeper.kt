@@ -7,8 +7,13 @@ import android.os.IBinder
 
 class TimeKeeper : Service() {
 
+    val binder = object: Binder(){
+        val service: TimeKeeper
+            get() = this@TimeKeeper
+    }
+
     override fun onBind(intent: Intent): IBinder {
-        TODO("Return the communication channel to the service.")
+        return binder
     }
 
 }
