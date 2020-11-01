@@ -21,10 +21,12 @@ class TimeKeeper : Service() {
         }
     }
 
-    val binder = object: Binder(){
+    inner class LocalBinder: Binder() {
         val time: LiveData<Date>
             get() = this@TimeKeeper.time
     }
+
+    val binder = LocalBinder()
 
     override fun onBind(intent: Intent): IBinder {
         return binder
