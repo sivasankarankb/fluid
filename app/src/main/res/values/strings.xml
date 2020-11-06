@@ -3,4 +3,7 @@
     <string name="app_motto">Let\'s get organised!</string>
     <string name="schedule">Schedule</string>
     <string name="view_schedule">View schedule</string>
+    <string name="write_about_task">Write about the task...</string>
+    <string name="add">Add</string>
+    <string name="start_at">Start at</string>
 </resources>
