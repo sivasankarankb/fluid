@@ -38,5 +38,9 @@ class Home : AppCompatActivity() {
 
             Context.BIND_AUTO_CREATE
         )
+
+        binding.scheduleButton.setOnClickListener{
+            startActivity(Intent(this, ScheduleList::class.java))
+        }
     }
 }
