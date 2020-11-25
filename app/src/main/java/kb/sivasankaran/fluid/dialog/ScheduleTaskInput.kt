@@ -13,11 +13,15 @@ import androidx.fragment.app.DialogFragment
 import kb.sivasankaran.fluid.R
 import kb.sivasankaran.fluid.databinding.DialogScheduleTaskBinding
 
-class ScheduleTask: DialogFragment() {
+class ScheduleTaskInput(val listener: TaskInfoListener): DialogFragment() {
 
     class TaskInfo{
         var description: String = ""
         var start: String = ""
+    }
+
+    interface TaskInfoListener{
+        fun taskInfoEntered(info: TaskInfo)
     }
 
     val taskInfo = TaskInfo()
@@ -44,6 +48,9 @@ class ScheduleTask: DialogFragment() {
                 binding.taskStart.requestFocus()
                 return@setOnClickListener
             }
+
+            listener.taskInfoEntered(taskInfo)
+            dismiss()
         }
         
         return binding.root
